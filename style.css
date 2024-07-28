@@ -484,6 +484,7 @@ body main section.cards .card span{
 }
 
 .my-projects{
+    justify-content: center;
     padding: 8px 8px;
     margin-top: 40px;
 }
@@ -492,7 +493,7 @@ body main section.cards .card span{
     font-size: 18px;
 }
 .my-projects .btn-categoria button{
-    margin: auto;
+    margin: 10px 6px;
     font-size: 14px;
 }
 
@@ -507,6 +508,6 @@ body main section.cards .card span{
 .main-contact .form-box button{
     font-size: 14px;
     padding: 8px;
-    margin: 20px 10px;
+    margin: auto;
 }
 }
