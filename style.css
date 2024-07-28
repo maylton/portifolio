@@ -11,7 +11,7 @@ body{
 }
 
 body main{
-    max-width: 1580px;
+    max-width: 1200px;
     padding: 3%;
     margin: 0 auto;
 }
@@ -20,7 +20,7 @@ body main{
     display: flex;
     align-items:center;
     justify-content: space-between;
-    max-width: 1380px;
+    max-width: 1200px;
     padding: 1%;
     margin: 0 auto;
 }
@@ -150,6 +150,13 @@ section.cards{
 
 }
 
+.languages-text{
+    position: absolute;
+    color: whitesmoke;
+    font-size: 22px;
+    top: 53%;
+}
+
 body main section.cards .card{
     display: flex;
     flex-direction: column;
@@ -230,9 +237,30 @@ body main section.cards .icon{
     color: #a52a2a;
 }
 
+.container-icons{
+    display: flex;
+    max-width: 600px;
+    margin: auto;
+}
+
+.languages-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    cursor: pointer;
+    margin:auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0 , 0.1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.languages-icons:hover{
+    transform:scale(1.2,1.2);
+
+}
 
 .container-cards{
-    padding: 20px;
+    padding: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,8 +270,8 @@ body main section.cards .icon{
 .container-cards .card-portifolio{
     position: relative;
     display: inline-block;
-    margin: 1rem 1rem;
-    padding: 10px;
+    justify-content: center;
+    margin: 1rem 2rem;
     width: 350px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0 , 0.1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -267,7 +295,7 @@ body main section.cards .icon{
 
 
 .container-cards .card-portifolio .img-portifolio img{
-    max-width: 90%;
+    max-width: 100%;
     border-radius: 3%;
     cursor: pointer;
 }
@@ -283,87 +311,6 @@ body main section.cards .icon{
 .container-cards .card-portifolio h3{
     margin-left: 12px;
     line-height: 0;
-
-}
-
-.main-contact{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    margin-left: 15%;
-}
-
-.main-contact .text-contact{
-    color: whitesmoke;
-    margin-left: 4%;
-    text-align: center;
-    max-width: 90%;
-}
-
-.main-contact .text-contact h1{
-    font-size: 32px;
-    padding: 16px 16px;
-}
-
-.main-contact .form-box{
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-}
-
-.main-contact .form-box form{
-    display: flex;
-    align-items: start;
-    flex-wrap: wrap;
-    padding: 32px;
-}
-
-.main-contact .form-box input,
-.main-contact .form-box textarea{
-    width: calc(50% - 8px);
-    height: 48px;
-    border-radius: 8px;
-    border: thin solid #999;
-    padding-left: 16px;
-    margin-bottom: 16px;
-    font-size: 16px;
-}
-
-.main-contact .form-box input:first-child{
-    margin-right: 16px;
-}
-
-.main-contact .form-box input[name=subject]{
-    width: 100%;
-}
-
-.main-contact .form-box textarea{
-    width: 100%;
-    height: 180px;
-    padding: 16px;
-}
-
-.main-contact .form-box button{
-    padding: 10px 20px;
-    border-radius: 6px;
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-left: 40%;
-    border: none;
-    background-color: brown;
-    font-weight: 600;
-    color: whitesmoke;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 rgb(255, 255, 255);
-    transition: ease-out 0.3s;
-    outline: none;
-}
-
-.main-contact .form-box button:hover{
-    box-shadow: inset 180px 0 0 0 rgba(255, 255, 255, 0.938);
-    border: none;
-    color:#a52a2a;
 }
 
 .footer{
@@ -397,4 +344,167 @@ body main section.cards .icon{
     background-color: rgb(19, 19, 19);
     width: 100vh;
     border-radius: 8px;
+}
+
+.main-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+}
+
+.main-contact .text-contact{
+    color: whitesmoke;
+    text-align: center;
+    max-width: 70%;
+    margin: auto;
+}
+
+.main-contact .text-contact h1{
+    font-size: 32px;
+    padding: 16px 16px;
+}
+
+.main-contact .form-box{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.main-contact .form-box form{
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 32px;
+}
+
+.main-contact .form-box input{
+    height: 48px;
+    border-radius: 8px;
+    border: thin solid #999;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.main-contact .form-box input:first-child{
+    margin-right: 16px;
+}
+
+.main-contact .form-box input[email=email]{
+    width: 100%;
+}
+
+.main-contact .form-box button{
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-left: 40%;
+    border: none;
+    background-color: brown;
+    font-weight: 600;
+    color: whitesmoke;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 rgb(255, 255, 255);
+    transition: ease-out 0.3s;
+    outline: none;
+}
+
+.main-contact .form-box button:hover{
+    box-shadow: inset 180px 0 0 0 rgba(255, 255, 255, 0.938);
+    border: none;
+    color:#a52a2a;
+}
+
+/*Responsividade*/
+@media (max-width:1200px){
+
+.logo img{
+    max-width: 70%;
+}
+
+.apresentacao{
+    flex-direction: column-reverse;
+    text-align: center;
+}
+
+.apresentacao h1{
+    margin-top: 12px;
+}
+
+.apresentacao p{
+    padding: 8%;
+    font-size: 22px;
+    margin: auto;
+}
+
+.apresentacao h3{
+    font-size: 32px;
+}
+
+.apresentacao img{
+    max-width: 60%;
+    margin: auto;
+}
+
+.apresentacao button{
+    padding: 8px;
+    font-size: 22px;
+    margin: auto;
+}
+
+section.cards{
+    margin-top: 40px;
+}
+
+.languages-text{
+    position: inherit;
+    margin: auto;
+}
+body main section.cards{
+    flex-direction: column;
+}
+
+body main section.cards .card{
+    margin: 16px ;
+    width: 340px;
+    height: 300px;
+
+}
+body main section.cards .card h3{
+    margin: 8px 0;
+}
+body main section.cards .card span{
+    font-size: 18px;
+    max-width: fit-content;
+}
+
+.my-projects{
+    margin-top: 40px;
+}
+
+.my-projects p{
+    font-size: 22px;
+}
+.my-projects .btn-categoria button{
+    padding: 8px;
+    font-size: 18px;
+}
+
+.main-contact .form-box{
+    padding: 6%;
+    max-width: 100%;
+}
+.main-contact .form-box p{
+    font-size: 20px;
+    text-align: justify;
+}
+.main-contact .form-box button{
+    font-size: 18px;
+    padding: 8px;
+    margin: auto;
+}
 }
