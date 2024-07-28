@@ -211,31 +211,39 @@ body main section.cards .icon{
     max-width: 700px;
     text-align: center;
     padding: 10px 15px;
-    margin-bottom: 16px;
 }
 
-.my-projects .btn-categoria button{
-    padding: 10px 20px;
-    border-radius: 6px;
-    margin-left: 10px;
-    border: none;
-    background-color: brown;
-    font-weight: 600;
-    color: whitesmoke;
+.btn-container{
+
+    display: flex;
+}
+
+.category-btn{
+    padding: 1rem 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     cursor: pointer;
-    box-shadow: inset 0 0 0 0 rgb(255, 255, 255);
-    transition: ease-out 0.3s;
-    outline: none;
-}
-.my-projects .btn-categoria button:first-child{
-    margin-left: 0;
+    margin:auto;
 }
 
-.my-projects .btn-categoria button:hover{
-    box-shadow: inset 150px 0 0 0 rgb(255, 255, 255);
+.category-btn button{
+    border-radius: 6px;
     border: none;
-    color: #a52a2a;
+    padding: 5px 10px;
+    color: whitesmoke;
+    background-color: #a52a2a;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.6s;
 }
+.category-btn button:hover{
+    box-shadow: inset 160px 0 0 0 rgb(255, 255, 255);
+    color: #a52a2a;
+    border: none;
+}
+
 
 .container-icons{
     display: flex;
@@ -340,9 +348,8 @@ body main section.cards .icon{
 .rights{
     text-align: center;
     color: whitesmoke;
+    font-size: 13px;
     padding: 16px 16px;
-    background-color: rgb(19, 19, 19);
-    width: 100vh;
     border-radius: 8px;
 }
 
@@ -484,21 +491,27 @@ body main section.cards .card span{
 }
 
 .my-projects{
-    justify-content: center;
-    padding: 8px 8px;
+    padding: 8%;
     margin-top: 40px;
+    justify-content: center;
+    margin: auto;
 }
 
 .my-projects p{
     font-size: 18px;
 }
-.my-projects .btn-categoria button{
-    margin: 10px 6px;
+.my-projects .select-categoria button{
+    margin: 8px 12px;
     font-size: 14px;
 }
 
+.main-contact .text-contact{
+    max-width: fit-content;
+
+}
+
 .main-contact .form-box{
-    padding: 6%;
+    padding: 8%;
     max-width: 100%;
 }
 .main-contact .form-box p{
