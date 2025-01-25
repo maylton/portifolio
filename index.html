@@ -17,14 +17,19 @@
         </div>
         <nav>
             <div class="menu-container">
-                <ul>
-                    <li><a href="">Início</a></li>
-                    <li><a href="">Projetos</a></li>
-                    <li><a href="">Sobre mim</a></li>
-                    <li><a href="">Contato</a></li>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre mim</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
                 </ul>
             </div>
         </nav>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 </header>
 <body>
@@ -46,33 +51,35 @@
         </section>
 
         <section class="cards">
-            <div class="languages-text">
-                <h1>Meus serviços</h1>
-            </div>
-            <div class="card">
-                <div class="icon">
-                    <i class="bi bi-globe"></i>
+            <div class="carousel-container">
+                <button class="carousel-button prev">&#8249;</button>
+                <div class="carousel-track">
+                    <div class="card">
+                        <div class="icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h3>Desenvolvimento front-end</h3>
+                        <span>Posso desenvolver um site para você usando as principais tecnologias utilizadas: Javascript, HTML e CSS.</span>
+                    </div>
+                    <div class="card">
+                        <div class="icon">
+                            <i class="bi bi-braces"></i>
+                        </div>
+                        <h3>Desenvolvimento back-end</h3>
+                        <span>Que tal desenvolvermos um programa poderoso para sua empresa usando Python e Django?</span>
+                    </div>
+                    <div class="card">
+                        <div class="icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3>Desenvolvimento mobile</h3>
+                        <span>Ainda não estou desenvolvendo aplicativos, mas esse será o próximo passo ;D</span>
+                    </div>
                 </div>
-                <h3>Desenvolvimento front-end</h3>
-                <span>Posso desenvolver um site para você usando as principais tecnologias utilizadas: Javascript, HTML e CSS.</span>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <i class="bi bi-braces"></i>
-                </div>
-                <h3>Desenvolvimento back-end</h3>
-                <span>Que tal desenvolvermos um programa poderoso para sua empresa usando Python e Django?</span>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <i class="bi bi-phone"></i>
-                </div>
-                <h3>Desenvolvimento mobile</h3>
-                <span>Ainda não estou desenvolvendo aplicativos, mas esse será o próximo passo ;D</span>
+                <button class="carousel-button next">&#8250;</button>
             </div>
         </section>
+        
 
         <div class="container-icons">
             <div class="languages-icons">
@@ -103,12 +110,15 @@
                 <h1>Meus projetos</h1>
                 <p>Aqui estão alguns dos trabalhos que já desenvolvi para clientes ou que simplesmente realizei como forma de estudo e prática. Você pode navegar entre eles selecionando as categlorias abaixo.</p>
             </p>
-                <div class="btn-categoria">
-                    <button><a>Todos</a></button>
-                    <button><a>Sites</a></button>
-                    <button><a>Programas</a></button>
-                    <button><a>Mobile apps</a></button>
-                </div>
+            <div class="btn-categoria-dropdown">
+                <button class="dropdown-button">Categorias</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Todos</a></li>
+                    <li><a href="#">Sites</a></li>
+                    <li><a href="#">Programas</a></li>
+                    <li><a href="#">Mobile apps</a></li>
+                </ul>
+            </div>
         
 
             <div class="container-cards">
@@ -187,7 +197,47 @@
             © 2024 Maylton Fernandes. Todos os direitos reservados.
         </div>
         
-
     </footer>
+    <script>
+        ///Menu Hamburger
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        });
+
+        const track = document.querySelector('.carousel-track');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const cards = document.querySelectorAll('.card');
+    
+        let currentIndex = 0;
+    
+        function updateCarousel() {
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+    
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    
+        // Responsividade - Ajusta a posição ao redimensionar a tela
+        window.addEventListener('resize', updateCarousel);
+    </script>
+    
 </body>
 </html>

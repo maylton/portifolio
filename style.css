@@ -10,7 +10,7 @@ body{
     height: 100vh;
 }
 
-body main{
+main{
     max-width: 1200px;
     padding: 3%;
     margin: 0 auto;
@@ -75,9 +75,24 @@ nav ul li{
     transition: ease-out 0.1s;
     outline: none;
 }
+
 .container nav ul li a:hover{
     box-shadow: inset 150px 0 0 0 #a52a2a;
     border: none;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+    transition: 0.4s;
 }
 
 .apresentacao{
@@ -138,58 +153,74 @@ nav ul li{
 }
 
 
-section.cards{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 120px;
-    color: black;
-    padding: 40px;
+/* Estilo do container do carrossel */
+.carousel-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-
+    max-width: 1200px; /* Largura máxima para centralizar */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Garante centralização do carrossel */
 }
+
+/* Faixa dos cards */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 16px;
+    justify-content: center; /* Centraliza os itens dentro do carrossel */
+}
+
+
+/* Cards dentro do carrossel */
+.carousel-track .card {
+    flex: 0 0 calc(100% - 32px); /* Largura ajustada considerando o gap */
+    max-width: 280px; /* Define um tamanho máximo */
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+/* Botões de navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+body main section.cards .icon{
+    font-size: 48px;
+    color: #a52a2a;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 
 .languages-text{
     position: absolute;
     color: whitesmoke;
     font-size: 22px;
     top: 53%;
-}
-
-body main section.cards .card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    margin-left: 20px;
-    width: 280px;
-    height: 300px;
-}
-
-
-body main section.cards .card h3{
-    margin: 16px 0;
-    text-align: center;
-}
-
-body main section.cards .card span{
-    margin-bottom: 16px;
-    text-align: center;
-    font-weight: 400;
-    max-width: 240px;
-}
-
-
-body main section.cards .card:first-child{
-    margin-left: 0;
-}
-
-body main section.cards .icon{
-    font-size: 48px;
-    color: #a52a2a;
 }
 
 .my-projects{
@@ -218,31 +249,69 @@ body main section.cards .icon{
     display: flex;
 }
 
-.category-btn{
-    padding: 1rem 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    cursor: pointer;
-    margin:auto;
-}
+/* Estilo do botão principal */
 
-.category-btn button{
-    border-radius: 6px;
-    border: none;
-    padding: 5px 10px;
-    color: whitesmoke;
+.btn-categoria-dropdown {
+    position: relative;
+    z-index: 10; /* Garante que o menu tenha prioridade sobre outros elementos */
+}
+.dropdown-button {
+    padding: 10px 20px;
     background-color: #a52a2a;
+    color: whitesmoke;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.6s;
+    transition: 0.3s ease;
 }
-.category-btn button:hover{
-    box-shadow: inset 160px 0 0 0 rgb(255, 255, 255);
-    color: #a52a2a;
-    border: none;
+
+.dropdown-button:hover {
+    background-color: #8b0000;
 }
+
+/* Estilo do menu suspenso */
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #a52a2a;
+    color: whitesmoke;
+}
+
+/* Mostrar o menu ao passar o mouse */
+.btn-categoria-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 
 
 .container-icons{
@@ -407,7 +476,6 @@ body main section.cards .icon{
 .main-contact .form-box button{
     padding: 10px 20px;
     border-radius: 6px;
-    margin-left: 10px;
     margin-top: 20px;
     margin-left: 40%;
     border: none;
@@ -426,110 +494,145 @@ body main section.cards .icon{
     color:#a52a2a;
 }
 
-/*Responsividade*/
-@media (max-width:1100px){
+@media (max-width: 1100px) {
+    .apresentacao {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
 
-.body main{
-    max-width: fit-content;
-}
+    body {
+        font-size: 16px; /* Base */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Escala proporcional */
+    }
 
-.logo img{
-    max-width: 70%;
-}
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #333;
+    }
 
-.apresentacao{
-    flex-direction: column-reverse;
-    text-align: center;
-}
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
 
-.apresentacao h1{
-    margin-top: 12px;
-}
+    .hamburger-menu {
+        display: flex;
+    }
 
-.apresentacao p{
-    padding: 8%;
-    font-size: 16px;
-    margin: auto;
-}
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .apresentacao p{
+        margin-top: 16px;
+        margin-right: 0;
+        text-align: center;
+    }
 
-.apresentacao h3{
-    font-size: 32px;
-}
 
-.apresentacao img{
-    max-width: 60%;
-    margin: auto;
-}
+    .apresentacao button{
+        margin-left: 0;
+    }
+    
 
-.apresentacao button{
-    padding: 8px;
-    font-size: 16px;
-    margin: auto;
-}
+    .apresentacao img {
+        max-width: 60%;
+        margin: auto;
+    }
 
-section.cards{
-    padding: 8px 0;
-    margin-top: 40px;
-}
+    .main-contact .form-box {
+        padding: 8%;
+        max-width: 90%;
+    }
 
-.languages-text{
-    position: inherit;
-    margin: auto;
-}
-body main section.cards{
-    flex-direction: column;
-}
-
-body main section.cards .card{
-    margin: 16px ;
-    width: 340px;
-    height: 300px;
-
-}
-body main section.cards .card h3{
-    margin: 8px 0;
-}
-body main section.cards .card span{
-    font-size: 16px;
-    max-width: fit-content;
-}
-
-.my-projects{
-    padding: 8%;
-    margin-top: 40px;
-    justify-content: center;
-    margin: auto;
-}
-
-.my-projects p{
-    font-size: 18px;
+    .container-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        padding: 20px;
+    }
+    .main-contact .form-box button{
+        display: block;
+        margin-top: auto;
+        margin-left: auto;
+    }
+    .main-contact .form-box input:first-child{
+        margin-right: auto;
+    }
+    
 }
 
-.main-contact .text-contact{
-    max-width: fit-content;
+/* Para telas grandes (desktops maiores que 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
 }
 
-.main-contact .form-box{
-    padding: 8%;
-    max-width: 90%;
+/* Para tablets (largura entre 768px e 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 5%;
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .apresentacao img {
+        max-width: 70%;
+    }
+
 }
 
-.main-contact .form-box input[email=email]{
-    width: 90%;
-    margin-left: auto;
-}
-.main-contact .form-box p{
-    font-size: 18px;
-    text-align: center;
-}
-.main-contact .form-box button{
-    font-size: 14px;
-    padding: 8px;
-    margin: auto;
-}
 
-.footer .footer-menu nav ul li a{
-    font: 8px;
-    color: whitesmoke;
-}
+/* Para dispositivos móveis (menores que 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 2%;
+    }
+    body {
+        font-size: 16px; /* Base */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Escala proporcional */
+    }
+    
+    .apresentacao {
+        padding: 5%;
+    }
+    
+
+    nav ul li {
+        display: block;
+        text-align: center;
+    }
+
+    .apresentacao h3 {
+        font-size: 24px;
+    }
+
+    .container-cards .card-portifolio {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .container-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        padding: 20px;
+    }
+
+    
 }
